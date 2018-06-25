@@ -45,7 +45,7 @@ public class ConfigController {
 	
 	@RequestMapping("/getConfig")
 	public void getConfig() {
-		 logger.info("my name is "+name+", "+ age +" years old, "+location);
+		 logger.info("my name is0.0.0. "+name+", "+ age +" years old, "+location);
 
 	}
 
