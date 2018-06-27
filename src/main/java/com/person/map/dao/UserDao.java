@@ -8,4 +8,5 @@ import com.person.map.bean.User;
 public interface UserDao {
 
 	int addUser(User user);
+	
 }
