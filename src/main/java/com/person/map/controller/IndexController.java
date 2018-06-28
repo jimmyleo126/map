@@ -3,7 +3,7 @@ package com.person.map.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.ibatis.annotations.Param;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.person.map.bean.ContentDomain;
 import com.person.map.constant.Types;
+import com.person.map.service.content.ContentService;
+import com.person.map.utils.APIResponse;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -21,18 +23,25 @@ import io.swagger.annotations.ApiParam;
 @RequestMapping(value = "/admin")
 public class IndexController {
 	
-	//private 
+	@Autowired
+	private ContentService contentService; 
 	
 	@ApiOperation("进入博客首页")
 	@GetMapping("/")
 	public String getindex() {
-		
 		return "blog/page/index";
 	}
 	
+	@ApiOperation("进入添加文章页")
+	@GetMapping("addcontent")
+	public String addcontent() {
+		return "blog/page/addcontent";
+	}
+	
+	
 	@ApiOperation("添加文章")
 	@GetMapping("savecontent")
-	public String savecontent(
+	public APIResponse savecontent(
 			@ApiParam(name = "titile", value = "标题", required = true)
 			@RequestParam(name = "title", required = true) 
 			String title, 
@@ -70,9 +79,8 @@ public class IndexController {
         contentDomain.setType(type);
         contentDomain.setStatus(status);
         contentDomain.setTags(type.equals(Types.ARTICLE.getType()) ? tags : null);
-        
-        
-		return null;
+        contentService.addContent(contentDomain);
+		return APIResponse.success();
 	}
 	
 	

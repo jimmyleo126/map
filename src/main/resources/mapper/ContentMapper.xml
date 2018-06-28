@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.person.map.dao.ArtificDao" >
+	<sql id="BASE_TABLE">
+		t_content
+	</sql>
+	<!-- 添加项目信息 -->
+    <insert id="addContent" parameterType="com.person.map.bean.ContentDomain" useGeneratedKeys="true" keyProperty="mid">
+        INSERT INTO
+        <include refid="BASE_TABLE"/>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            title, titlePic, slug, created, content, authorId, type,
+            status, tags, categories, hits, commentsNum, allowComment,
+            allowPing, allowFeed,
+        </trim>
+        <trim prefix="VALUES(" suffix=")" suffixOverrides=",">
+            #{title, jdbcType=VARCHAR}, #{titlePic, jdbcType=VARCHAR}, #{slug, jdbcType=VARCHAR}, UNIX_TIMESTAMP(NOW()),
+            #{content, jdbcType=LONGVARCHAR}, #{authorId, jdbcType=	INTEGER}, #{type, jdbcType=VARCHAR},
+            #{status, jdbcType=VARCHAR}, #{tags, jdbcType=VARCHAR}, #{categories, jdbcType=VARCHAR},
+            #{hits, jdbcType=INTEGER}, #{commentsNum, jdbcType=INTEGER}, #{allowComment, jdbcType=INTEGER},
+            #{allowPing, jdbcType=INTEGER}, #{allowFeed, jdbcType=INTEGER}, 
+        </trim>
+    </insert>
+</mapper>
