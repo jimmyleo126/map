@@ -19,17 +19,58 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
 @Api("后台首页")
-@Controller("adminIndexController")
-@RequestMapping(value = "/admin")
+@Controller
 public class IndexController {
 	
 	@Autowired
 	private ContentService contentService; 
 	
 	@ApiOperation("进入博客首页")
-	@GetMapping("/")
+	@GetMapping(value= {"/", "blog/page/index"})
 	public String getindex() {
 		return "blog/page/index";
+	}
+	
+	@ApiOperation("关于")
+	@GetMapping("blog/page/about")
+	public String about() {
+		return "blog/page/about";
+	}
+	
+	@ApiOperation("特点")
+	@GetMapping("blog/page/features")
+	public String features() {
+		return "blog/page/features";
+	}
+	
+	@ApiOperation("旅行")
+	@GetMapping("blog/page/travel")
+	public String travel() {
+		return "blog/page/travel";
+	}
+	
+	@ApiOperation("时尚")
+	@GetMapping("blog/page/fashion")
+	public String fashion() {
+		return "blog/page/fashion";
+	}
+	
+	@ApiOperation("音乐")
+	@GetMapping("blog/page/music")
+	public String music() {
+		return "blog/page/music";
+	}
+	
+	@ApiOperation("编码")
+	@GetMapping("blog/page/codes")
+	public String codes() {
+		return "blog/page/codes";
+	}
+	
+	@ApiOperation("联系我们")
+	@GetMapping("blog/page/contact")
+	public String contact() {
+		return "blog/page/contact";
 	}
 	
 	@ApiOperation("进入添加文章页")

@@ -1,17 +1,17 @@
 <!DOCTYPE HTML>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>About</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
 <script type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link th:href="@{/blog/css/bootstrap.css}" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
-<link href='https://fonts.googleapis.com/css?family=Raleway:400,600,700' rel='stylesheet' type='text/css'>
-<link href="css/style.css" rel='stylesheet' type='text/css' />	
-<script src="js/jquery-1.11.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<link th:href="@{/blog/css/font/googleapi.css}" rel='stylesheet' type='text/css'>
+<link th:href="@{/blog/css/style.css}" rel='stylesheet' type='text/css' />	
+<script th:src="@{/blog/js/jquery-1.11.1.min.js}"></script>
+<script th:src="@{/blog/js/bootstrap.min.js}"></script>
 </head>
 <body>
 <div class="header" id="ban">
@@ -46,14 +46,14 @@
 				<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
 					<nav class="link-effect-7" id="link-effect-7">
 						<ul class="nav navbar-nav">
-							<li><a href="index.html">Home</a></li>
-							<li class="active act"><a href="about.html">About</a></li>
-							<li><a href="features.html">Features</a></li>
-							<li><a href="travel.html">Travel</a></li>
-							<li><a href="fashion.html">Fashion</a></li>
-							<li><a href="music.html">Music</a></li>
-							<li><a href="codes.html">Codes</a></li>
-							<li><a href="contact.html">Contact</a></li>
+							<li><a th:href="@{/blog/page/index}">Home</a></li>
+							<li class="active act"><a th:href="@{/blog/page/about}">About</a></li>
+							<li><a th:href="@{/blog/page/features}">Features</a></li>
+							<li><a th:href="@{/blog/page/travel}">Travel</a></li>
+							<li><a th:href="@{/blog/page/fashion}">Fashion</a></li>
+							<li><a th:href="@{/blog/page/music}">Music</a></li>
+							<li><a th:href="@{/blog/page/codes}">Codes</a></li>
+							<li><a th:href="@{/blog/page/contact}">Contact</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -97,7 +97,7 @@
 				<div class="welcome-top heading">
 					<h2 class="w3">WELCOME</h2>
 					<div class="welcome-bottom">
-						<img src="images/t4.jpg" class="img-responsive" alt="">
+						<img th:src="@{/blog/images/t4.jpg}" class="img-responsive" alt="">
 						<p>Vivamus interdum diam diam, non faucibus tortor consequat vitae. Proin sit amet augue sed massa pellentesque viverra. Suspendisse iaculis purus eget est pretium aliquam ut sed diam. Nullam non magna lobortis, faucibus erat eu, consequat justo. Suspendisse commodo nibh odio, vel elementum nulla luctus sit amet.</p>
 						<p>Nulla in tempor lectus. Etiam ac mauris lacinia nulla ultricies porta sit amet eleifend ligula. Quisque tincidunt vitae turpis at efficitur. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec sagittis, magna a sagittis dapibus, ipsum metus interdum lectus, quis feugiat leo ipsum nec diam.</p>
 					</div>
@@ -108,7 +108,7 @@
 				<div class="team-grids">
 					<div class="col-md-6 team-grid">
 						<div class="team-grid1">
-							<img src="images/2.jpg" alt=" " class="img-responsive">
+							<img th:src="@{/blog/images/2.jpg}" alt=" " class="img-responsive">
 							<div class="p-mask">
 								<p>Neque porro quisquam est, qui dolorem ipsum.</p>
 								
@@ -132,13 +132,63 @@
 					</div>
 					<div class="col-md-6 team-grid">
 						<div class="team-grid1">
-							<img src="images/3.jpg" alt=" " class="img-responsive">
+							<img th:src="@{/blog/images/3.jpg}" alt=" " class="img-responsive">
 							<div class="p-mask">
 								<p>Neque porro quisquam est, qui dolorem ipsum.</p>
 								
 							</div>
 						</div>
 						<h5>Joseph Ali<span>Manager</span></h5>
+						<ul class="social">
+							<li><a class="social-facebook" href="#">
+								<i></i>
+								<div class="tooltip"><span>Facebook</span></div>
+								</a></li>
+							<li><a class="social-twitter" href="#">
+								<i></i>
+								<div class="tooltip"><span>Twitter</span></div>
+								</a></li>
+							<li><a class="social-google" href="#">
+								<i></i>
+								<div class="tooltip"><span>Google+</span></div>
+								</a></li>
+						</ul>
+					</div>
+					
+					<div class="col-md-6 team-grid">
+						<div class="team-grid1">
+							<img th:src="@{/blog/images/team/lj.jpg}" alt=" " class="img-responsive">
+							<div class="p-mask">
+								<p>没错我就是我, 人狠话不多.</p>
+								
+							</div>
+						</div>
+						<h5>Jimmy Leo<span>Manager</span></h5>
+						<ul class="social">
+							<li><a class="social-facebook" href="#">
+								<i></i>
+								<div class="tooltip"><span>Facebook</span></div>
+								</a></li>
+							<li><a class="social-twitter" href="#">
+								<i></i>
+								<div class="tooltip"><span>Twitter</span></div>
+								</a></li>
+							<li><a class="social-google" href="#">
+								<i></i>
+								<div class="tooltip"><span>Google+</span></div>
+								</a></li>
+						</ul>
+					</div>
+					
+					<div class="col-md-6 team-grid">
+						<div class="team-grid1">
+							<img th:src="@{/blog/images/team/ml.jpg}" alt=" " class="img-responsive">
+							<div class="p-mask">
+								<p>没错我就是我, 人狠话不多.</p>
+								
+							</div>
+						</div>
+						<h5>Meng Li<span>Manager</span></h5>
 						<ul class="social">
 							<li><a class="social-facebook" href="#">
 								<i></i>
