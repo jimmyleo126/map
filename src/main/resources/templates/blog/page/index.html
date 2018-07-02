@@ -19,6 +19,17 @@
  new WOW().init();
 </script>
 <!-- //animation-effect -->
+<style>
+	.loginname{
+		position: absolute;
+	    right: 15px;
+	    top: 28px;
+	}
+	.login_a{
+		font-size: 11px;
+	    margin-left: 10px;
+	}
+</style>
 </head>
 <body>
 <div class="header" id="ban">
@@ -77,6 +88,7 @@
 						<li><a href="#" class="vimeo"> </a></li>
 					</ul>
 				</div>
+				<div class="loginname"><a class="login_a" th:text="${ user.username }">旅行者，请登录 </a><a class="login_a" th:text="${ user.username }">免费注册</a></div>
 			<div class="clearfix"> </div>	
 		</div>
 	</div>

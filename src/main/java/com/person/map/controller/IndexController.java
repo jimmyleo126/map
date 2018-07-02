@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.person.map.bean.ContentDomain;
+import com.person.map.bean.User;
+import com.person.map.bean.UserDomain;
 import com.person.map.constant.Types;
+import com.person.map.constant.WebConst;
 import com.person.map.service.content.ContentService;
 import com.person.map.utils.APIResponse;
 
@@ -27,7 +30,12 @@ public class IndexController {
 	
 	@ApiOperation("进入博客首页")
 	@GetMapping(value= {"/", "blog/page/index"})
-	public String getindex() {
+	public String getindex(HttpServletRequest request, HttpSession session) {
+		UserDomain user = (UserDomain) request.getSession().getAttribute(WebConst.LOGIN_SESSION_KEY);
+		if(user == null)
+			user = new UserDomain();
+		user.setUsername("liuj");
+		request.setAttribute("user", user);
 		return "blog/page/index";
 	}
 	
