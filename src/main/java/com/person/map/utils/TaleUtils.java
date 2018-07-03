@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.person.map.bean.UserDomain;
+import com.person.map.constant.WebConst;
 
 public class TaleUtils {
 	
@@ -19,7 +20,7 @@ public class TaleUtils {
 		if (session == null) {
 			return null;
 		}
-		return (UserDomain) session.getAttribute("");
+		return (UserDomain) session.getAttribute(WebConst.LOGIN_SESSION_KEY);
 	}
 
 }

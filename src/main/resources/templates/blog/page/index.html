@@ -9,9 +9,11 @@
 <link th:href="@{/blog/css/bootstrap.css}" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
 <link th:href="@{/blog/css/font/googleapi.css}" rel='stylesheet' type='text/css'>
-<link th:href="@{/blog/css/style.css}" rel='stylesheet' type='text/css' />	
+<link th:href="@{/blog/css/style.css}" rel='stylesheet' type='text/css' />
+<link th:href="@{/blog/css/jquery-ui.css}" rel='stylesheet' type='text/css' />
 <script th:src="@{/blog/js/jquery-1.11.1.min.js}"></script>
 <script th:src="@{/blog/js/bootstrap.min.js}"></script>
+<script th:src="@{/blog/js/jquery-ui.js}"></script>
 <!-- animation-effect -->
 <link th:href="@{/blog/css/animate.min.css}" rel="stylesheet"> 
 <script th:src="@{/blog/js/wow.min.js}"></script>
@@ -96,15 +98,15 @@
 	<div class="header-bottom">
 		<div class="container">
 			<div class="logo wow fadeInDown"  data-wow-duration=".8s" data-wow-delay=".2s">
-				<h1><a href="index.html">STYLE BLOG</a></h1>
-				<p><label class="of"></label>LET'S MAKE A PERFECT STYLE<label class="on"></label></p>
+				<h1><a href="">STYLE BLOG</a></h1>
+				<p id="tip1" onclick="tipdialog()"><label class="of"></label>LET'S MAKE A PERFECT STYLE<label class="on"></label></p>
 			</div>
 		</div>
 	</div>
 <!-- banner -->
 <div class="tlinks">Collect from <a href="http://www.cssmoban.com/" >网页模板</a></div>
 <div class="banner">
-<div class="container">	
+<div class="container">
 		<h2>在未来的一年里，迎接更好的自己！</h2>
 		<p>等待得太久，也不免令人灰心，世界真的昏暗了吗？那为什么有阳光、蓝天和白云？风景的自欺，心情的自欺？自然，不自然？迷惑，清醒？轻松，沉重？飘，飞？浮，沉？解释不清又何必解释？不如不说，只等默默走过，走过岁月，走过时空，走过许许多多，不说，用心地等。</p>
 		<a href="singlepage.html">获取更多</a>
@@ -458,5 +460,51 @@
 					<p>Copyright &copy; 2016.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
 				</div>
 			</div>
+			
+<script type="text/javascript">
+
+$( "#dialog-form" ).dialog({
+    autoOpen: false,
+    height: 300,
+    width: 350,
+    modal: true,
+    buttons: {
+          $( this ).dialog( "close" );
+      },
+      Cancel: function() {
+        $( this ).dialog( "close" );
+      }
+    },
+    close: function() {
+      allFields.val( "" ).removeClass( "ui-state-error" );
+    }
+  });
+
+
+
+
+	function tipdialog(){
+	    $( "#tip1" ).dialog();
+	}
+</script>
+
+<div id="dialog-form" title="创建新用户">
+  <p class="validateTips">所有的表单字段都是必填的。</p>
+  <form>
+  <fieldset>
+    <label for="name">名字</label>
+    <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all">
+    <label for="email">邮箱</label>
+    <input type="text" name="email" id="email" value="" class="text ui-widget-content ui-corner-all">
+    <label for="password">密码</label>
+    <input type="password" name="password" id="password" value="" class="text ui-widget-content ui-corner-all">
+  </fieldset>
+  </form>
+</div>
+ 
+ 
+
+
+
 </body>
 </html>
