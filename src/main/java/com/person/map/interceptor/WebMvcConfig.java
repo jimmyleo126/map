@@ -11,6 +11,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 	@Autowired
 	private BaseInterceptor baseInterceptor;
 	
+	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(baseInterceptor);
 	}
